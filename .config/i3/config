@@ -199,6 +199,7 @@ bindsym $mod+t exec ~/repo/cpp/hellowindow/a.out
 bindsym $mod+v exec VirtualBox
 bindsym $mod+d exec xdman
 bindsym $mod+s exec sudo shutdown -h now
+bindsym $mod+c exec flameshot gui
 
 default_border none
 for_window [all] fullscreen enable
