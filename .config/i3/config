@@ -202,6 +202,6 @@ bindsym $mod+s exec sudo shutdown -h now
 bindsym $mod+c exec flameshot gui
 
 default_border none
-for_window [all] fullscreen enable
+# for_window [all] fullscreen enable
 exec sleep 1 && ~/bash/togglexcomp.sh
 exec ~/.fehbg 
