@@ -31,4 +31,5 @@ alias ls="ls -a"
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 export nvimd="$HOME/.config/nvim"
 export gitemail="73800712+D4rkn1@users.noreply.github.com"
-export gitname="D4rkn1"
+export PATH="$HOME/bash:$PATH"
+eval $(keychain --eval --quiet D4rkn1)
