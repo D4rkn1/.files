@@ -1,5 +1,4 @@
 #!/bin/sh
-#~/.fehbg &
 xbindkeys
 
 xmodmap ~/.Xmodmap
