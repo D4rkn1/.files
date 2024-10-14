@@ -27,7 +27,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias ls="ls -a"
+alias ls="ls -a --color=auto"
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 export nvimd="$HOME/.config/nvim"
 export gitemail="73800712+D4rkn1@users.noreply.github.com"
