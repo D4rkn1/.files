@@ -24,7 +24,7 @@ case $1 in
         then
             pkill "mpv"
         fi
-        mpv --no-video "$selected" --input-ipc-server="$socket"
+        mpv --loop-file=inf --no-video "$selected" --input-ipc-server="$socket"
     ;;
     selectplaylist) 
         selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
