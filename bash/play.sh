@@ -10,9 +10,16 @@ case $1 in
     find) 
         selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
         
-        if [ -n "$selected_playlist" ]; then
-            selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search ")
+        if [ $? -eq 1 ]; then
+            exit 0
         fi
+
+        selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search ")
+
+        if [ $? -eq 1 ]; then
+            exit 0
+        fi
+
         if pgrep -x "mpv" > /dev/null
         then
             pkill "mpv"
@@ -27,6 +34,8 @@ case $1 in
         fi
 
         tmp_playlist=/tmp/tmp_playlist
+        random_string=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
+        tmp_playlist=$tmp_playlist$random_string
         touch $tmp_playlist
         newplaylist=$(find $selected_playlist -type f -name "*.mp3" | shuf >> $tmp_playlist)
         if [ $? -eq 1 ]; then
@@ -95,6 +104,3 @@ case $1 in
     *) echo unknown command
     ;;
 esac
-
-
-
