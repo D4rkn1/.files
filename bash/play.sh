@@ -19,7 +19,7 @@ case $1 in
         then
             pkill "mpv"
         fi
-        mpv --loop $playlist --no-video --input-ipc-server="$socket" --playlist="$playlist"
+        mpv --no-video --input-ipc-server="$socket" --playlist="$playlist"
     ;;
     next)
         echo '{ "command": ["playlist-next"] }' | socat - $socket
