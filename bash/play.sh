@@ -1,18 +1,60 @@
 #!/usr/bin/sh
 
 socket=/tmp/mpv-socket
-playlist=$HOME/musics/fav
-shuf $playlist -o $playlist
+playlists=$HOME/musics/playlists
+
+mkdir -p $HOME/musics
+touch $playlists
 
 case $1 in
-    select) 
-        selected=$(find $HOME -type f -name "*.mp3" | rofi -dmenu -i -p "Select music") 
+    find) 
+        selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
         
+        if [ -n "$selected_playlist" ]; then
+            selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search ")
+        fi
         if pgrep -x "mpv" > /dev/null
         then
             pkill "mpv"
         fi
         mpv --no-video "$selected" --input-ipc-server="$socket"
+    ;;
+    selectplaylist) 
+        selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
+        
+        if [ $? -eq 1 ]; then
+            exit 0
+        fi
+
+        tmp_playlist=/tmp/tmp_playlist
+        touch $tmp_playlist
+        newplaylist=$(find $selected_playlist -type f -name "*.mp3" | shuf >> $tmp_playlist)
+        if [ $? -eq 1 ]; then
+            exit 0
+        fi
+
+        if pgrep -x "mpv" > /dev/null
+        then
+            pkill "mpv"
+        fi
+        mpv --no-video --input-ipc-server="$socket" --playlist="$tmp_playlist"
+        rm "$tmp_playlist"
+    ;;
+    addplaylist) 
+        newplaylist=$(find $HOME -type d | rofi -dmenu -i -p "select folder") 
+        if [ $? -eq 1 ]; then
+            exit 0
+        fi
+
+        if grep -xn "$newplaylist" "$playlists"; then
+            line_number=$(grep -xn "$newplaylist" "$playlists" | cut -d: -f1)
+            newplaylist=$(sed ${line_number}d $playlists)
+            
+            printf "$newplaylist" | cat > $playlists
+            printf "\n" >> $playlists
+        else
+            echo $newplaylist >> $playlists
+        fi
     ;;
     start)
         if pgrep -x "mpv" > /dev/null
