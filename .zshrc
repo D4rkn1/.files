@@ -29,6 +29,9 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias ls="ls -a --color=auto"
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias viu='nvim --listen /tmp/nvim-unity.pipe'
+alias vi='nvim .'
+alias mpv='mpv --speed=1.75 --osc=no --osd-level=0 --sub-visibility=no'
 export nvimd="$HOME/.config/nvim"
 export gitemail="73800712+D4rkn1@users.noreply.github.com"
 export PATH="$HOME/bash:$PATH"
