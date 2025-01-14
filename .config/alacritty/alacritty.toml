@@ -23,4 +23,7 @@ transparent_background_colors = true
 background = "#11121a"
 
 [window]
-opacity = 0.98
+opacity = 1
+
+[mouse]
+hide_when_typing = true
