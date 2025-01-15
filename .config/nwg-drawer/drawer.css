@@ -1,0 +1,22 @@
+window {
+    background-color: rgba (20, 20, 20, 0.95);
+    color: #eeeeee
+}
+
+entry {
+    background-color: rgba (0, 0, 0, 0.8);
+}
+
+button, image {
+    background: none;
+    border: none
+}
+
+button:hover {
+    background-color: rgba (80, 80, 80, 0.3);
+}
+
+#math-label {
+    font-weight: bold;
+    font-size: 80px
+}
