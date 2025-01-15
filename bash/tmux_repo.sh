@@ -17,12 +17,12 @@ case $1 in
         repo=$(echo "$selected_repo" | xargs basename)
 
         if tmux has-session -t "$repo" 2>/dev/null; then
-            hyprctl dispatch exec "[workspace 1] alacritty -e tmux a -t $repo"
+            hyprctl dispatch exec "[workspace 8] alacritty -e tmux a -t $repo"
         else
             tmux new-session -d -s $repo
             tmux send-key -t $repo "cd $selected_repo" C-m
             tmux send-key -t $repo "vi" C-m
-            hyprctl dispatch exec "[workspace 1] alacritty -e tmux a -t $repo"
+            hyprctl dispatch exec "[workspace 8] alacritty -e tmux a -t $repo"
         fi
     ;;
     read)
