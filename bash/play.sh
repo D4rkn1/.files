@@ -92,11 +92,9 @@ case $1 in
     stat)
         current_file=$(echo '{ "command": ["get_property", "path"] }' | socat - $socket | jq -r '.data')
 
-        # Send notification
         if [[ -n "$current_file" ]]; then
-        notify-send "Now Playing" "$current_file"
-        else
-            notify-send "Error" "No file is currently being played."
+            echo -n "$current_file" | wl-copy
+            notify-send "Now Playing" "$current_file"
         fi
     ;;
     volup)
