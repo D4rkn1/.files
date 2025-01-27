@@ -14,7 +14,7 @@ case $1 in
             exit 0
         fi
 
-        selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search ")
+        selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search " -sorting-method fzf)
 
         if [ $? -eq 1 ]; then
             exit 0
@@ -77,6 +77,14 @@ case $1 in
     ;;
     prev)
         echo '{ "command": ["playlist-prev"] }' | socat - $socket
+    ;;
+    pause)
+        ispaused=$(echo '{ "command": ["get_property", "pause"] }' | socat - $socket | jq '.data')
+        if [[ "$ispaused" == "false" ]]; then
+            echo '{ "command": ["set_property", "pause", true] }' | socat - $socket
+        else
+            echo '{ "command": ["set_property", "pause", false] }' | socat - $socket
+        fi
     ;;
     stop)
         echo '{ "command": ["stop"] }' | socat - $socket
