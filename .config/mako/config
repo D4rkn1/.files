@@ -1,3 +1,4 @@
+on-notify=exec mpv $HOME/tones/notify.wav
 sort=-time
 layer=overlay
 background-color=#2e3440
