@@ -25,7 +25,23 @@ case $1 in
             hyprctl dispatch exec "[workspace 8] alacritty -e tmux a -t $repo"
         fi
     ;;
-    read)
+    create)
+        personal_path="$HOME/repo/personal/"
+        new_dir="mydir"
+        dir_input=$(rofi -dmenu -i -p "new repo name ") 
+        if [[ ! -d "$personal_path$dir_input" ]] then
+            mkdir -p "$personal_path$dir_input"
+        fi
+        repo=$(echo "$dir_input" | xargs basename)
+        if tmux has-session -t "$repo" 2>/dev/null; then
+            hyprctl dispatch workspace 8
+        else
+            tmux new-session -d -s $repo
+            tmux send-key -t $repo "cd $personal_path$dir_input" C-m
+            tmux send-key -t $repo "git init -b master" C-m
+            tmux send-key -t $repo "vi" C-m
+            hyprctl dispatch exec "[workspace 8] alacritty -e tmux a -t $repo"
+        fi
     ;;
     *)
         echo unknown command
