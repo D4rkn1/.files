@@ -37,7 +37,7 @@ case $1 in
         random_string=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
         tmp_playlist=$tmp_playlist$random_string
         touch $tmp_playlist
-        newplaylist=$(find $selected_playlist -type f -name "*.mp3" | shuf >> $tmp_playlist)
+        newplaylist=$(fd -e mp3 -e ogg . $selected_playlist | shuf >> $tmp_playlist)
         if [ $? -eq 1 ]; then
             exit 0
         fi
