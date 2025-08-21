@@ -11,6 +11,8 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt autocd
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
