@@ -37,6 +37,7 @@ alias vi='nvim .'
 alias mpv='mpv --speed=1.75 --osc=no --osd-level=0 --sub-visibility=no'
 alias cwd="pwd | tr -d '\n' | wl-copy"
 alias trn="transmission-remote"
+alias ls="lsd --blocks=size,name"
 export nvimd="$HOME/.config/nvim"
 export gitemail="73800712+D4rkn1@users.noreply.github.com"
 eval $(keychain --eval --quiet D4rkn1)
