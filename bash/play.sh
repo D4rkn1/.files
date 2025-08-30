@@ -14,7 +14,7 @@ case $1 in
             exit 0
         fi
 
-        selected=$(find $selected_playlist -type f -name "*.mp3" | rofi -dmenu -i -p "search " -sorting-method fzf)
+        selected=$(fd -e mp3 -e ogg -e flac . $selected_playlist | rofi -dmenu -i -p "search " -sorting-method fzf)
 
         if [ $? -eq 1 ]; then
             exit 0
@@ -37,7 +37,7 @@ case $1 in
         random_string=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
         tmp_playlist=$tmp_playlist$random_string
         touch $tmp_playlist
-        newplaylist=$(fd -e mp3 -e ogg . $selected_playlist | shuf >> $tmp_playlist)
+        newplaylist=$(fd -e mp3 -e ogg -e flac . $selected_playlist | shuf >> $tmp_playlist)
         if [ $? -eq 1 ]; then
             exit 0
         fi
