@@ -37,7 +37,7 @@ alias vi='nvim .'
 alias mpv='mpv --speed=1.75 --osc=no --osd-level=0 --sub-visibility=no'
 alias cwd="pwd | tr -d '\n' | wl-copy"
 alias trn="transmission-remote"
-alias ls="lsd --blocks=size,name -a"
+alias ls="lsd --blocks=size,name -A"
 alias spek="$HOME/repo/spek/src/spek"
 alias sonic="$HOME/repo/sonic-visualiser/build/sonic-visualiser"
 export nvimd="$HOME/.config/nvim"
