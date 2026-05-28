@@ -43,7 +43,8 @@ alias spek="$HOME/repo/spek/src/spek"
 alias sonic="$HOME/repo/sonic-visualiser/build/sonic-visualiser"
 export nvimd="$HOME/.config/nvim"
 export gitemail="73800712+D4rkn1@users.noreply.github.com"
-eval $(keychain --eval --quiet D4rkn1)
+export HOSTNAME=$(uname -n)
+source ~/.keychain/$HOSTNAME-sh
 export PATH="$HOME/.local/bin:$HOME/bash:$HOME/appimage:$HOME/bash:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
