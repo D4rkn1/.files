@@ -1,7 +1,4 @@
 #!/bin/sh
 
-myssh=$(ssh-agent -s)
-eval $myssh
-myadd="ssh-add $HOME/.ssh/D4rkn1"
-eval $myadd
-
+$keys=$(ls | grep -v '\.pub\|config\|known_hosts\|authorized_keys\|agent')
+eval $(keychain --eval --quiet --agents ssh $keys)
