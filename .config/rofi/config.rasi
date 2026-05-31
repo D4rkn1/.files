@@ -3,14 +3,17 @@
 configuration {
     show-icons:      true;
     display-drun:    "";
-    disable-history: false;
+    disable-history: true;
+    matching:        "fuzzy";
 }
 
 * {
-    font: "Jetbrains Mono 14";
+    font: "Jetbrains Mono 20";
     foreground: #f8f8f2;
-    background-color: #282a36;
-    active-background: #6272a4;
+    // background-color: #282a36;
+    transparency: "real";
+    background-color: rgba(20, 20, 20, 0.2);
+    active-background: #6272a424;
     urgent-background: #ff5555;
     urgent-foreground: #282a36;
     selected-background: @active-background;
@@ -22,10 +25,10 @@ configuration {
 
 #window {
     background-color: @background-color;
-    border:           3;
-    border-radius:    6;
+    border:           4;
+    border-radius:    0;
     border-color:     @bordercolor;
-    padding:          15;
+    padding:          0;
 }
 #mainbox {
     border:  0;
@@ -34,22 +37,24 @@ configuration {
 #message {
     border:       0px;
     border-color: @separatorcolor;
-    padding:      1px;
+    padding:      0px;
 }
 #textbox {
     text-color: @foreground;
 }
 #listview {
-    fixed-height: 0;
+    lines:        10;
+    dynamic:      true;
+    fixed-height: false;
     border:       0px;
     border-color: @bordercolor;
-    spacing:      2px ;
+    spacing:      0px ;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      0px 0px 0px 0px ;
 }
 #element {
     border:  0;
-    padding: 3px ;
+    padding: 10px 0px;
 }
 #element.normal.normal {
     background-color: @background-color;
@@ -102,6 +107,7 @@ configuration {
     text-color:       @foreground;
 }
 #inputbar {
+    enabled: false;
     spacing:    0;
     text-color: @foreground;
     padding:    1px ;
@@ -113,6 +119,8 @@ configuration {
 #entry {
     spacing:    0;
     text-color: @foreground;
+    placeholder:       "";
+    horizontal-align:  0.5;
 }
 #prompt {
     spacing:    0;
@@ -124,7 +132,7 @@ configuration {
 #textbox-prompt-colon {
     expand:     false;
     str:        ">";
-    margin:     0px 0.3em 0em 0em ;
+    margin:     0px 0em 0em 0em ;
     text-color: @foreground;
 }
 element-text, element-icon {
