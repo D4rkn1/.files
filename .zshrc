@@ -25,6 +25,10 @@ bindkey -a 'i' vi-forward-char
 bindkey -a 'l' vi-insert
 bindkey -a 'I' vi-insert-bol
 bindkey -a 'h' vi-forward-word-end
+
+function zle-line-init() { zle vi-cmd-mode }
+zle -N zle-line-init
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
