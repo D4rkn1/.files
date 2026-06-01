@@ -16,6 +16,15 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 unsetopt beep
 bindkey -v
+
+bindkey -a 'm' vi-backward-char
+bindkey -a 'n' vi-down-line-or-history
+bindkey -a 'e' vi-up-line-or-history
+bindkey -a 'i' vi-forward-char
+
+bindkey -a 'l' vi-insert
+bindkey -a 'I' vi-insert-bol
+bindkey -a 'h' vi-forward-word-end
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
