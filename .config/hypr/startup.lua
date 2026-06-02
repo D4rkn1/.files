@@ -1,6 +1,8 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("alacritty")
-  hl.dsp.exec_cmd("tmux_init.sh")
+  hl.exec_cmd("swaybg -i $(fd -e jpg -e jpeg -e png . $HOME/wallpapers | shuf -n1) -m fill")
+  hl.exec_cmd("tmux new-session -d -s home")
+  hl.exec_cmd("alacritty -e tmux a -t home")
+  hl.exec_cmd("d4ssh.sh")
 end)
 
 hl.config({
