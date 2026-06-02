@@ -35,8 +35,8 @@ hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(programs.fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
--- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
---
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+
 hl.bind(mainMod .. " + S", hl.dsp.submap("resize"))
 hl.define_submap("resize", function()
   hl.bind("i", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
