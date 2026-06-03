@@ -8,12 +8,10 @@ configuration {
 }
 
 * {
-    font: "Jetbrains Mono 20";
-    foreground: #f8f8f2;
-    // background-color: #282a36;
-    transparency: "real";
-    background-color: rgba(20, 20, 20, 0.2);
-    active-background: #6272a424;
+    font: "Jetbrains Mono 18";
+    foreground: #f8f8f2c0;
+    background-color: #11111120;
+    active-background: #33cfff4a;
     urgent-background: #ff5555;
     urgent-foreground: #282a36;
     selected-background: @active-background;
@@ -25,14 +23,17 @@ configuration {
 
 #window {
     background-color: @background-color;
-    border:           4;
+    transparency: "real";
+    border:           1;
     border-radius:    0;
     border-color:     @bordercolor;
     padding:          0;
+    margin:           0;
 }
 #mainbox {
     border:  0;
     padding: 0;
+    margin:  0;
 }
 #message {
     border:       0px;
@@ -50,11 +51,13 @@ configuration {
     border-color: @bordercolor;
     spacing:      0px ;
     scrollbar:    false;
-    padding:      0px 0px 0px 0px ;
+    padding:      0;
+    margin:       0;
 }
 #element {
     border:  0;
-    padding: 10px 0px;
+    padding: 0;
+    margin: 0;
 }
 #element.normal.normal {
     background-color: @background-color;
@@ -99,7 +102,7 @@ configuration {
     padding:      0;
 }
 #sidebar {
-    border:       2px dash 0px 0px ;
+    border:       0;
     border-color: @separatorcolor;
 }
 #button.selected {
@@ -110,7 +113,7 @@ configuration {
     enabled: false;
     spacing:    0;
     text-color: @foreground;
-    padding:    1px ;
+    padding:    0;
 }
 #case-indicator {
     spacing:    0;
@@ -138,4 +141,7 @@ configuration {
 element-text, element-icon {
     background-color: inherit;
     text-color: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: 0.5;
 }
