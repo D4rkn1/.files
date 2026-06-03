@@ -29,6 +29,8 @@ hl.bind(mainMod .. " + TAB", hl.dsp.submap("programs"))
 hl.define_submap("programs", function()
   hl.bind("f", hl.dsp.exec_cmd(programs.browser))
   hl.bind("f", hl.dsp.submap("reset"))
+  hl.bind("q", hl.dsp.exec_cmd(programs.menu))
+  hl.bind("q", hl.dsp.submap("reset"))
 end)
 
 hl.bind(mainMod .. " + Q", hl.dsp.exit())
