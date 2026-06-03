@@ -32,6 +32,7 @@ hl.define_submap("programs", function()
   hl.bind("q", hl.dsp.exec_cmd(programs.menu))
   hl.bind("q", hl.dsp.submap("reset"))
 end)
+hl.bind(mainMod .. " + t", hl.dsp.workspace.toggle_special("clock"))
 
 hl.bind(mainMod .. " + Q", hl.dsp.exit())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
