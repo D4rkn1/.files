@@ -1,7 +1,7 @@
 /*Dracula theme based on the Purple official rofi theme*/
 
 configuration {
-    show-icons:      true;
+    show-icons:      false;
     display-drun:    "";
     disable-history: true;
     matching:        "fuzzy";
