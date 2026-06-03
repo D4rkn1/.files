@@ -20,6 +20,8 @@ hl.define_submap("mpv", function()
   hl.bind("i", hl.dsp.submap("reset"))
   hl.bind("a", hl.dsp.exec_cmd("play.sh addplaylist"))
   hl.bind("a", hl.dsp.submap("reset"))
+  hl.bind("f", hl.dsp.exec_cmd("play.sh find"))
+  hl.bind("f", hl.dsp.submap("reset"))
   hl.bind("SPACE", hl.dsp.submap("reset"))
 end)
 
