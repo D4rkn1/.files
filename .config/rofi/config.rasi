@@ -130,7 +130,7 @@ configuration {
     text-color: @foreground;
 }
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:   [entry];
 }
 #textbox-prompt-colon {
     expand:     false;
