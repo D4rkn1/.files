@@ -16,4 +16,7 @@ return {
   alacritty = function()
     hl.exec_cmd("alacritty -e tmux new-session -As home")
   end,
+  obsidian = function()
+    hl.exec_cmd("[workspace special:obsidian silent] alacritty -e tmux_obsidian.sh")
+  end,
 }

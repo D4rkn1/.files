@@ -5,6 +5,7 @@ hl.on("hyprland.start", function()
   cmd.ssh()
   cmd.config()
   cmd.alacritty()
+  cmd.obsidian()
 end)
 
 hl.config({
