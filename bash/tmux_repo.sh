@@ -42,7 +42,7 @@ case $1 in
     ;;
     create)
         personal_repo_dir="$HOME/repo/personal/"
-        selected=$(repolist_clean "$personal_repo_dir" | rofi -dmenu -format f -theme-str 'inputbar { enabled: true; }')
+        selected=$(repolist_clean "$personal_repo_dir" | rofi -dmenu -format f -theme-str 'inputbar { enabled: true; }') || exit 1
         create_dir "$personal_repo_dir$selected"
         repo=$(basename $selected)
         tmux_focus "$personal_repo_dir$selected" "cd $personal_repo_dir$selected" "git init -b master" "vi"
