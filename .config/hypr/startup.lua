@@ -2,8 +2,9 @@ local cmd = require("startcmd")
 hl.on("hyprland.start", function()
   cmd.bg()
   cmd.clock()
-  cmd.alacritty()
   cmd.ssh()
+  cmd.config()
+  cmd.alacritty()
 end)
 
 hl.config({
