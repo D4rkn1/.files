@@ -8,13 +8,13 @@ touch $playlists
 
 case $1 in
     find) 
-        selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
+        selected_playlist=$(cat $playlists | rofi -dmenu "playlists ") 
         
         if [ $? -eq 1 ]; then
             exit 0
         fi
 
-        selected=$(fd -e mp3 -e ogg -e flac . $selected_playlist | rofi -dmenu -i -p "search " -sorting-method fzf)
+        selected=$(fd -e mp3 -e ogg -e flac . $selected_playlist | rofi -dmenu "search ")
 
         if [ $? -eq 1 ]; then
             exit 0
@@ -27,7 +27,7 @@ case $1 in
         mpv --volume=50 --loop-file=inf --no-video "$selected" --input-ipc-server="$socket"
     ;;
     selectplaylist) 
-        selected_playlist=$(cat $playlists | rofi -dmenu -i -p "playlists ") 
+        selected_playlist=$(cat $playlists | rofi -dmenu "playlists ") 
         
         if [ $? -eq 1 ]; then
             exit 0
@@ -50,7 +50,7 @@ case $1 in
         rm "$tmp_playlist"
     ;;
     addplaylist) 
-        newplaylist=$(find $HOME -type d | rofi -dmenu -i -p "select folder") 
+        newplaylist=$(fd -td . $HOME | rofi -dmenu "select folder") 
         if [ $? -eq 1 ]; then
             exit 0
         fi
