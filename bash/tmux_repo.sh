@@ -37,7 +37,7 @@ create_dir() {
 case $1 in
     find)
         repo_dir="$HOME/repo/"
-        selected=$(repolist_clean "$repo_dir" | rofi -dmenu -no-custom)
+        selected=$(repolist_clean "$repo_dir" | rofi -dmenu -no-custom) || exit 1
         tmux_focus "$repo_dir$selected" "cd $repo_dir$selected" "vi"
     ;;
     create)
