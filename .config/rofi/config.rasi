@@ -8,7 +8,7 @@ configuration {
 }
 
 * {
-    font: "Jetbrains Mono 18";
+    font: "Noto Sans 18";
     foreground: #f8f8f2c0;
     background-color: #11111120;
     active-background: #33cfff4a;
