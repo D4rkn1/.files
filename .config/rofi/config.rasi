@@ -5,6 +5,7 @@ configuration {
     display-drun:    "";
     disable-history: true;
     matching:        "fuzzy";
+    case-smart: true;
 }
 
 * {
