@@ -24,7 +24,7 @@ case $1 in
         then
             pkill "mpv"
         fi
-        mpv --volume=50 --loop-file=inf --no-video "$selected" --input-ipc-server="$socket"
+        mpv --loop-file=inf --no-video "$selected" --input-ipc-server="$socket"
     ;;
     selectplaylist) 
         selected_playlist=$(cat $playlists | rofi -dmenu "playlists ") 
@@ -46,7 +46,7 @@ case $1 in
         then
             pkill "mpv"
         fi
-        mpv --volume=50 --no-video --input-ipc-server="$socket" --playlist="$tmp_playlist"
+        mpv --no-video --input-ipc-server="$socket" --playlist="$tmp_playlist"
         rm "$tmp_playlist"
     ;;
     addplaylist) 
@@ -70,7 +70,7 @@ case $1 in
         then
             pkill "mpv"
         fi
-        mpv --volume=50 --no-video --input-ipc-server="$socket" --playlist="$playlist"
+        mpv --no-video --input-ipc-server="$socket" --playlist="$playlist"
     ;;
     next)
         echo '{ "command": ["playlist-next"] }' | socat - $socket
