@@ -28,6 +28,14 @@ local overlayLayerRule = hl.layer_rule({
 overlayLayerRule:set_enabled(false)
 
 hl.window_rule({
+  match = {
+    class = "^(firefox|mpv)$"
+  },
+  opaque = true,
+  no_blur = true,
+})
+
+hl.window_rule({
   name = "move-hyprland-run",
   match = { class = "hyprland-run" },
 
