@@ -17,4 +17,7 @@ return {
   obsidian = function()
     hl.exec_cmd("[workspace special:obsidian silent] alacritty -e tmux_obsidian.sh")
   end,
+  suwayomi = function()
+    hl.exec_cmd("docker start suwayomi")
+  end,
 }
