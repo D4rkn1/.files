@@ -81,6 +81,16 @@ npx() {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
   npx "$@"
 }
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+keys=(${HOME}/.ssh/*(N-.))
+
+keys=(${keys:#*.pub})
+keys=(${keys:#${HOME}/.ssh/config})
+keys=(${keys:#${HOME}/.ssh/known_hosts*})
+keys=(${keys:#${HOME}/.ssh/authorized_keys*})
+keys=(${keys:#${HOME}/.ssh/agent*})
+
+keys=(${keys:t})
+
+(( ${#keys} )) && eval "$(keychain --eval --quiet $keys)"
 #zprof
