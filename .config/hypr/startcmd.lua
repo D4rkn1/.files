@@ -6,16 +6,19 @@ return {
     hl.exec_cmd("d4ssh.sh")
   end,
   clock = function()
-    hl.exec_cmd("[workspace special:clock silent] alacritty -e tmux new-session -As clock \\; clock-mode")
+    hl.exec_cmd(
+      " alacritty -e tmux new-session -As clock \\; clock-mode",
+      { workspace = "special:clock silent", fullscreen = true }
+    )
   end,
   config = function()
     hl.exec_cmd("tmux new-session -d -s 'config' 'cd ~/.files && nvim .'")
   end,
   alacritty = function()
-    hl.exec_cmd("alacritty -e tmux new-session -As home")
+    hl.exec_cmd("alacritty -e tmux new-session -As home", { fullscreen = true })
   end,
   obsidian = function()
-    hl.exec_cmd("[workspace special:obsidian silent] alacritty -e tmux_obsidian.sh")
+    hl.exec_cmd("alacritty -e tmux_obsidian.sh", { workspace = "special:obsidian silent", fullscreen = true })
   end,
   suwayomi = function()
     hl.exec_cmd("docker start suwayomi")
