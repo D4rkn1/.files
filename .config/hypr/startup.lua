@@ -5,7 +5,6 @@ hl.on("hyprland.start", function()
   cmd.config()
   cmd.alacritty()
   cmd.obsidian()
-  cmd.suwayomi()
 end)
 
 hl.config({
