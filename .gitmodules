@@ -4,3 +4,6 @@
 [submodule "git-global-config"]
 	path = git-global-config
 	url = git@github.com:D4rkn1/git-global-config.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:D4rkn1/nvim.git
