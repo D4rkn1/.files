@@ -15,20 +15,6 @@ setopt autocd
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 unsetopt beep
-bindkey -v
-
-bindkey -a 'm' vi-backward-char
-bindkey -a 'n' vi-down-line-or-history
-bindkey -a 'e' vi-up-line-or-history
-bindkey -a 'i' vi-forward-char
-
-bindkey -a 'l' vi-insert
-bindkey -a 'I' vi-insert-bol
-bindkey -a 'h' vi-forward-word-end
-
-function zle-line-init() { zle vi-cmd-mode }
-zle -N zle-line-init
-
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
@@ -44,22 +30,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias ls="ls -a --color=auto"
-alias cp="rsync -av --progress"
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-alias viu='nvim --listen /tmp/nvim-unity.pipe'
-alias vi='nvim .'
-alias mpv='mpv --speed=1.75 --osc=no --osd-level=0 --sub-visibility=no'
-alias cwd="pwd | tr -d '\n' | wl-copy"
-alias trn="transmission-remote"
-alias ls="lsd --blocks=size,name -A"
-alias spek="$HOME/repo/spek/src/spek"
-alias sonic="$HOME/repo/sonic-visualiser/build/sonic-visualiser"
-export nvimd="$HOME/.config/nvim"
-export gitemail="73800712+D4rkn1@users.noreply.github.com"
-export HOSTNAME=$(uname -n)
-source ~/.keychain/$HOSTNAME-sh
-export PATH="$HOME/.local/bin:$HOME/bash:$HOME/appimage:$HOME/bash:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:$PATH"
 
 fcd() {
     local dir
@@ -91,6 +61,20 @@ npx() {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
   npx "$@"
 }
+
+bindkey -v
+
+bindkey -a 'm' vi-backward-char
+bindkey -a 'n' vi-down-line-or-history
+bindkey -a 'e' vi-up-line-or-history
+bindkey -a 'i' vi-forward-char
+
+bindkey -a 'l' vi-insert
+bindkey -a 'I' vi-insert-bol
+bindkey -a 'h' vi-forward-word-end
+
+function zle-line-init() { zle vi-cmd-mode }
+zle -N zle-line-init
 
 keys=(${HOME}/.ssh/*(N-.))
 
