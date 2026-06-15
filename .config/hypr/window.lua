@@ -29,7 +29,7 @@ overlayLayerRule:set_enabled(false)
 
 hl.window_rule({
   match = {
-    class = "^(firefox|mpv)$"
+    class = "^(firefox|mpv|osu!)$"
   },
   opaque = true,
   no_blur = true,
