@@ -60,6 +60,15 @@ export HOSTNAME=$(uname -n)
 source ~/.keychain/$HOSTNAME-sh
 export PATH="$HOME/.local/bin:$HOME/bash:$HOME/appimage:$HOME/bash:/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:$PATH"
 
+fcd() {
+    local dir
+    dir=$(fd -H -td . "$HOME" | fzf --scheme=path --smart-case)
+    [[ -n "$dir" ]] && cd "$dir"
+    zle accept-line
+}
+zle -N fcd
+bindkey -M vicmd '^[s' fcd
+
 export NVM_DIR="$HOME/.nvm"
 nvm() {
   unset -f nvm node npm npx
