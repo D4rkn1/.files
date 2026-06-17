@@ -21,15 +21,15 @@ hl.window_rule({
 })
 
 local overlayLayerRule = hl.layer_rule({
-    name  = "no-anim-overlay",
-    match = { namespace = "^my-overlay$" },
-    no_anim = true,
+  name = "no-anim-overlay",
+  match = { namespace = "^my-overlay$" },
+  no_anim = true,
 })
 overlayLayerRule:set_enabled(false)
 
 hl.window_rule({
   match = {
-    class = "^(firefox|mpv|osu!)$"
+    class = "^(firefox|mpv|osu!)$",
   },
   opaque = true,
   no_blur = true,
@@ -44,10 +44,10 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-    name = "rofi-blur",
-    match = {
-        namespace = "rofi",
-    },
-    blur = true,
-    xray = false,
+  name = "rofi-blur",
+  match = {
+    namespace = "rofi",
+  },
+  blur = true,
+  xray = false,
 })
