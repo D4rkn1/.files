@@ -20,9 +20,9 @@ case $1 in
             exit 0
         fi
 
-        if pgrep -x "mpv" > /dev/null
-        then
-            pkill "mpv"
+        if [ -S $socket ]; then
+            printf '{ "command": ["quit"] }\n' | socat - $socket
+            rm $socket
         fi
         mpv --loop-file=inf --no-video "$selected" --input-ipc-server="$socket"
     ;;
@@ -42,9 +42,9 @@ case $1 in
             exit 0
         fi
 
-        if pgrep -x "mpv" > /dev/null
-        then
-            pkill "mpv"
+        if [ -S $socket ]; then
+            printf '{ "command": ["quit"] }\n' | socat - $socket
+            rm $socket
         fi
         mpv --no-video --input-ipc-server="$socket" --playlist="$tmp_playlist"
         rm "$tmp_playlist"
