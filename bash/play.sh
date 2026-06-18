@@ -2,9 +2,15 @@
 
 socket=/tmp/mpv-socket
 playlists=$HOME/musics/playlists
+tmp_playlist=/tmp/playlist
 
 mkdir -p $HOME/musics
 touch $playlists
+
+: > "$tmp_playlist" || {
+    printf '%s\n' "error: cannot write $tmp_playlist" >&2
+    exit 1
+}
 
 case $1 in
     find) 
@@ -33,21 +39,23 @@ case $1 in
             exit 0
         fi
 
-        tmp_playlist=/tmp/tmp_playlist
-        random_string=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
-        tmp_playlist=$tmp_playlist$random_string
-        touch $tmp_playlist
-        newplaylist=$(fd -e mp3 -e ogg -e flac . $selected_playlist | shuf >> $tmp_playlist)
-        if [ $? -eq 1 ]; then
-            exit 0
-        fi
+        fd \
+        -tf\
+        -e ogg\
+        -e mp3\
+        -e wav\
+        -e flac\
+        --search-path "$selected_playlist" \
+        . >> "$tmp_playlist" || {
+            printf '%s\n' "error: fd failed for $selected_playlist" >&2
+            exit 1
+        }
 
         if [ -S $socket ]; then
             printf '{ "command": ["quit"] }\n' | socat - $socket
             rm $socket
         fi
-        mpv --no-video --input-ipc-server="$socket" --playlist="$tmp_playlist"
-        rm "$tmp_playlist"
+        mpv --no-video --input-ipc-server="$socket" --shuffle --playlist="$tmp_playlist"
     ;;
     addplaylist) 
         newplaylist=$(fd -td . $HOME | rofi -dmenu "select folder") 
@@ -70,7 +78,21 @@ case $1 in
             printf '{ "command": ["quit"] }\n' | socat - $socket
             rm $socket
         else
-            mpv --no-video --directory-filter-types=audio --input-ipc-server="$socket" --shuffle --playlist="$playlists"
+            while IFS= read -r dir; do
+                [ -n "$dir" ] || continue
+                fd \
+                -tf\
+                -e ogg\
+                -e mp3\
+                -e wav\
+                -e flac\
+                --search-path "$dir" \
+                . >> "$tmp_playlist" || {
+                    printf '%s\n' "error: fd failed for $dir" >&2
+                    exit 1
+                }
+            done < "$playlists"
+            mpv --no-video --directory-filter-types=audio --input-ipc-server="$socket" --shuffle --playlist="$tmp_playlist"
         fi
     ;;
     next)
