@@ -66,11 +66,12 @@ case $1 in
         fi
     ;;
     start)
-        if pgrep -x "mpv" > /dev/null
-        then
-            pkill "mpv"
+        if [ -S $socket ]; then
+            printf '{ "command": ["quit"] }\n' | socat - $socket
+            rm $socket
+        else
+            mpv --no-video --directory-filter-types=audio --input-ipc-server="$socket" --shuffle --playlist="$playlists"
         fi
-        mpv --no-video --input-ipc-server="$socket" --playlist="$playlist"
     ;;
     next)
         echo '{ "command": ["playlist-next"] }' | socat - $socket
@@ -88,6 +89,7 @@ case $1 in
     ;;
     stop)
         echo '{ "command": ["stop"] }' | socat - $socket
+        rm $socket
     ;;
     stat)
         current_file=$(echo '{ "command": ["get_property", "path"] }' | socat - $socket | jq -r '.data')
