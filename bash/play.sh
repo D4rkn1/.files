@@ -14,17 +14,27 @@ touch $playlists
 
 case $1 in
     find) 
-        selected_playlist=$(cat $playlists | rofi -dmenu "playlists ") 
+        all_playlists=$(cat $playlists | tr '\n' ' ') 
+        fd_res=$(fd -e mp3 -e ogg -e flac . $all_playlists)
         
-        if [ $? -eq 1 ]; then
-            exit 0
-        fi
+        stripped=""
+        while IFS= read -r f; do
+            while IFS= read -r dir; do
+                if [[ "$f" == "$dir/"* ]]; then
+                    stripped+="${f#$dir/}\n"
+                    break
+                fi
+            done < "$playlists"
+        done <<< "$fd_res"
 
-        selected=$(fd -e mp3 -e ogg -e flac . $selected_playlist | rofi -dmenu "search ")
+        selected=$(printf "$stripped" | rofi -dmenu "search" --no-custom) || exit 1
 
-        if [ $? -eq 1 ]; then
-            exit 0
-        fi
+        while IFS= read -r dir; do
+            if [ -f "$dir/$selected" ]; then
+                selected="$dir/$selected"
+                break
+            fi
+        done < "$playlists"
 
         if [ -S $socket ]; then
             printf '{ "command": ["quit"] }\n' | socat - $socket
