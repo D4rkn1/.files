@@ -20,4 +20,7 @@ return {
   obsidian = function()
     hl.exec_cmd("alacritty -e tmux_obsidian.sh", { workspace = "special:obsidian silent", fullscreen = true })
   end,
+  wayscriber = function()
+    hl.exec_cmd("wayscriber -d")
+  end,
 }

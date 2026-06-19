@@ -222,13 +222,13 @@ clear_preset_5 = []
 
 [ui]
 # Show status bar with current color/thickness/tool
-show_status_bar = true
+show_status_bar = false
 
 # Show board label in the status bar
-show_status_board_badge = true
+show_status_board_badge = false
 
 # Show page counter in the status bar
-show_status_page_badge = true
+show_status_page_badge = false
 
 # Show the board/page badge even when the status bar is visible
 show_page_badge_with_status_bar = false
@@ -254,7 +254,7 @@ command_palette_toast_duration_ms = 1500
 multi_monitor_enabled = true
 
 # Show active output label in the status bar.
-active_output_badge = true
+active_output_badge = false
 
 # Request fullscreen for the GNOME fallback overlay. Disable if fullscreen appears opaque.
 #xdg_fullscreen = false
@@ -266,7 +266,7 @@ active_output_badge = true
 [ui.toolbar]
 # Toolbar layout preset (simple / full)
 # Legacy values: regular / advanced
-layout_mode = "full"
+#layout_mode = "simple"
 
 # Optional per-mode overrides for toolbar sections
 # Use true/false to override a section; omit to use the mode default.
@@ -305,14 +305,14 @@ layout_mode = "full"
 # show_settings_section = true
 
 # Show top toolbar on startup (pinned)
-top_pinned = true
+top_pinned = false
 
 # Show side toolbar on startup (pinned)
-side_pinned = true
+side_pinned = false
 
 # Use icons instead of text labels in toolbars
 # Icons are more compact; text labels are more explicit
-use_icons = true
+use_icons = false
 
 # Scale factor for toolbar UI (icons + layout)
 scale = 1.0
@@ -322,7 +322,7 @@ scale = 1.0
 show_more_colors = false
 
 # Show basic actions (undo/redo/clear) in side toolbar
-show_actions_section = true
+show_actions_section = false
 
 # Show advanced actions (undo all, delay, freeze, etc.)
 show_actions_advanced = false
@@ -331,22 +331,22 @@ show_actions_advanced = false
 show_zoom_actions = true
 
 # Show page controls section (prev/next/new/dup/del)
-show_pages_section = true
+show_pages_section = false
 
 # Show board controls section (prev/next/new/del)
-show_boards_section = true
+show_boards_section = false
 
 # Show presets section in side toolbar
-show_presets = true
+show_presets = false
 
 # Show step undo/redo section
 show_step_section = false
 
 # Keep text controls visible even when text is inactive
-show_text_controls = true
+show_text_controls = false
 
 # Show settings section (config buttons and advanced toggles)
-show_settings_section = true
+show_settings_section = false
 
 # Show timing delay sliders in side toolbar
 # Allows configuring delayed undo/redo all timing
@@ -362,7 +362,7 @@ show_marker_opacity_section = false
 context_aware_ui = true
 
 # Show preset action toast notifications on apply/save/clear
-show_preset_toasts = true
+show_preset_toasts = false
 
 # Show cursor tool preview bubble near the pointer
 show_tool_preview = false
@@ -838,7 +838,7 @@ pressure_thickness_scale_step = 0.1
 enabled = true
 
 # Directory where PNG files are saved (supports ~ expansion)
-save_directory = "~/Pictures/Wayscriber"
+save_directory = "~/img/Wayscriber"
 
 # Filename template (strftime-like subset: %Y, %m, %d, %H, %M, %S)
 filename_template = "screenshot_%Y-%m-%d_%H%M%S"

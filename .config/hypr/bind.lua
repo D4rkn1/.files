@@ -46,6 +46,7 @@ hl.define_submap("programs", function()
   hl.bind("SPACE", hl.dsp.submap("reset"))
 end)
 hl.bind(mainMod .. " + t", hl.dsp.workspace.toggle_special("clock"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
 
 hl.bind(mainMod .. " + Q", hl.dsp.exit())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
