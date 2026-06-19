@@ -7,7 +7,7 @@ return {
   end,
   clock = function()
     hl.exec_cmd(
-      "alacritty -e tmux new-session -As clock 'tty-clock -c -C 4 -S -f \"%a %d %B\"'",
+      "alacritty -e tmux new-session -As clock 'tty-clock -c -C 4 -n -f \"%a %d %B\"'",
       { workspace = "special:clock silent", fullscreen = true }
     )
   end,
