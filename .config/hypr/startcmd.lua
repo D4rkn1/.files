@@ -23,4 +23,7 @@ return {
   wayscriber = function()
     hl.exec_cmd("wayscriber -d")
   end,
+  fcitx = function()
+    hl.exec_cmd("fcitx5")
+  end,
 }
