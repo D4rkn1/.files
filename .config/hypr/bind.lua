@@ -44,7 +44,14 @@ hl.define_submap("scr", function()
     )
   )
   hl.bind("W", hl.dsp.submap("reset"))
-  hl.bind("S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))
+  hl.bind(
+    "S",
+    hl.dsp.exec_cmd(
+      'grim -g "$(slurp)" - | ffmpeg -f image2pipe -vcodec png -i - -q:v 2 '
+        .. path.saved_img
+        .. "$(date +'%Y-%m-%d-%H%M%S').jpg"
+    )
+  )
   hl.bind("S", hl.dsp.submap("reset"))
   hl.bind("T", hl.dsp.exec_cmd([[slurp | grim -g - - | wl-copy && notify-send -u low "clip"]]))
   hl.bind("T", hl.dsp.submap("reset"))
