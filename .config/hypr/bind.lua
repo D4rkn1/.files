@@ -1,5 +1,6 @@
 local mainMod = "SUPER"
 local programs = require("programs")
+local path = require("path")
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(programs.terminal))
 hl.bind(mainMod .. " + grave", hl.dsp.submap("mpv"))
@@ -24,6 +25,33 @@ hl.define_submap("mpv", function()
   hl.bind("x", hl.dsp.submap("reset"))
   hl.bind("f", hl.dsp.exec_cmd("play.sh find"))
   hl.bind("f", hl.dsp.submap("reset"))
+  hl.bind("SPACE", hl.dsp.submap("reset"))
+end)
+
+hl.bind(mainMod .. " + A", hl.dsp.submap("scr"))
+hl.define_submap("scr", function()
+  hl.bind(
+    "R",
+    hl.dsp.exec_cmd("grim " .. path.saved_img .. "$(date +'%Y-%m-%d-%H%M%S').png && notify-send -u low 'png'")
+  )
+  hl.bind("R", hl.dsp.submap("reset"))
+  hl.bind(
+    "W",
+    hl.dsp.exec_cmd(
+      "grim - | ffmpeg -f image2pipe -vcodec png -i - -q:v 2 "
+        .. path.saved_img
+        .. "$(date +'%Y-%m-%d-%H%M%S').jpg && notify-send -u low 'jpg'"
+    )
+  )
+  hl.bind("W", hl.dsp.submap("reset"))
+  hl.bind("S", hl.dsp.exec_cmd([[grim -g "$(slurp)" - | swappy -f -]]))
+  hl.bind("S", hl.dsp.submap("reset"))
+  hl.bind("T", hl.dsp.exec_cmd([[slurp | grim -g - - | wl-copy && notify-send -u low "clip"]]))
+  hl.bind("T", hl.dsp.submap("reset"))
+  hl.bind("TAB", hl.dsp.exec_cmd("catbox.sh"))
+  hl.bind("TAB", hl.dsp.submap("reset"))
+  hl.bind("Q", hl.dsp.exec_cmd("sul.sh"))
+  hl.bind("Q", hl.dsp.submap("reset"))
   hl.bind("SPACE", hl.dsp.submap("reset"))
 end)
 
