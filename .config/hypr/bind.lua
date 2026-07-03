@@ -151,3 +151,12 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("play.sh pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("play.sh pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("play.sh prev"), { locked = true })
 hl.bind("XF86Tools", hl.dsp.exec_cmd("play.sh start"), { locked = true })
+
+hl.bind("F9", function()
+  local cur = hl.get_config("cursor.zoom_factor")
+  if cur == 4.0 then
+    hl.config({ cursor = { zoom_factor = 1.0} })
+  else
+    hl.config({ cursor = { zoom_factor = 4.0} })
+  end
+end)
