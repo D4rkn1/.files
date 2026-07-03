@@ -18,7 +18,7 @@
   tab   q     w     f     p     b     j     l     u     y     ;     [     ]     \
   @leader  a     r     s     t     g     m     n     e     i     o     '     ret
   @myshift  x     c     d     v     z     k     h     ,     .     /     rsft
-  lctl lmet  lalt           spc            ralt rmet rctl
+  lctl lmet  @mylalt           spc            ralt rmet rctl
 )
 
 
@@ -29,6 +29,7 @@
   myf8 (tap-hold 200 200 f8 f13)
 )
 
+(defalias mylalt (tap-hold-release 100 100 f9 lalt))
 (defalias leader (tap-hold-release 100 100 esc lmet))
 (defalias myshift (tap-hold-release 100 100 caps lsft))
 (defalias
