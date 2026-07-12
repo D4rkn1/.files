@@ -109,6 +109,15 @@ hl.define_submap("travel", function()
   hl.bind("SPACE", hl.dsp.submap("reset"))
 end)
 
+hl.bind(mainMod .. " + N", hl.dsp.submap("dl"))
+hl.define_submap("dl", function()
+  hl.bind("E", hl.dsp.exec_cmd([[sh -c 'exec dl.sh "$(wl-paste)"']]))
+  hl.bind("E", hl.dsp.submap("reset"))
+  hl.bind("r", hl.dsp.exec_cmd("dl.sh log"))
+  hl.bind("r", hl.dsp.submap("reset"))
+  hl.bind("SPACE", hl.dsp.submap("reset"))
+end)
+
 for i = 1, 10 do
   local key = i % 10
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
