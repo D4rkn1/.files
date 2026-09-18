@@ -24,13 +24,13 @@ enter_text_mode = ["T"]
 enter_sticky_note_mode = ["N"]
 
 # Clear all annotations on current canvas
-clear_canvas = ["E"]
+clear_canvas = ["Space"]
 
 # Undo last annotation
-undo = ["Ctrl+Z"]
+undo = ["Tab"]
 
 # Redo last undone annotation
-redo = ["Ctrl+Shift+Z", "Ctrl+Y"]
+redo = ["Shift+Tab"]
 
 # Duplicate currently selected annotations
 duplicate_selection = ["Ctrl+D"]
