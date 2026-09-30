@@ -25,6 +25,8 @@ hl.define_submap("mpv", function()
   hl.bind("x", hl.dsp.submap("reset"))
   hl.bind("f", hl.dsp.exec_cmd("play.sh find"))
   hl.bind("f", hl.dsp.submap("reset"))
+  hl.bind("grave", hl.dsp.exec_cmd("mpv-seeker"))
+  hl.bind("grave", hl.dsp.submap("reset"))
   hl.bind("SPACE", hl.dsp.submap("reset"))
 end)
 
