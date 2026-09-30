@@ -29,4 +29,7 @@ return {
   fcitx = function()
     hl.exec_cmd("fcitx5")
   end,
+  discord = function()
+    hl.exec_cmd("discord")
+  end,
 }
