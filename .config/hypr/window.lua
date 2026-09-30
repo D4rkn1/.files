@@ -43,6 +43,11 @@ hl.window_rule({
   float = true,
 })
 
+hl.window_rule({
+    match = { class = "^discord$" },
+    workspace = "9",
+})
+
 hl.layer_rule({
   name = "rofi-blur",
   match = {
