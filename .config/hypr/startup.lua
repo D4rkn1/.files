@@ -7,6 +7,7 @@ hl.on("hyprland.start", function()
   cmd.obsidian()
   cmd.wayscriber()
   cmd.fcitx()
+  cmd.wayvnc()
 end)
 
 hl.config({

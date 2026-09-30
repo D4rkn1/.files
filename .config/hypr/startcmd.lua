@@ -23,6 +23,9 @@ return {
   wayscriber = function()
     hl.exec_cmd("wayscriber -d")
   end,
+  wayvnc = function()
+    hl.exec_cmd("wayvnc 0.0.0.0 5900")
+  end,
   fcitx = function()
     hl.exec_cmd("fcitx5")
   end,
