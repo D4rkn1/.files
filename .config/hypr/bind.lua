@@ -85,7 +85,7 @@ end)
 hl.bind(mainMod .. " + t", hl.dsp.workspace.toggle_special("clock"))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
 
-hl.bind(mainMod .. " + Q", hl.dsp.exit())
+hl.bind(mainMod .. " + o", hl.dsp.exit())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(programs.fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
