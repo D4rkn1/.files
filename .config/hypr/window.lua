@@ -49,6 +49,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    match = { class = "^osu!$" },
+    workspace = "4",
+})
+
+hl.window_rule({
     match = { class = "^firefox$" },
     workspace = "2",
 })
