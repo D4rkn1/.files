@@ -29,6 +29,9 @@ return {
   fcitx = function()
     hl.exec_cmd("fcitx5")
   end,
+  ping = function()
+    hl.exec_cmd("tmux new-session -d -s 'ping' 'ping one.one.one.one | cut -d ' ' -f 8'")
+  end,
   discord = function()
     hl.exec_cmd("discord")
   end,
