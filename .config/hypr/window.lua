@@ -66,3 +66,12 @@ hl.layer_rule({
   blur = true,
   xray = false,
 })
+
+hl.window_rule({
+    name = "keepassxc-float-pin",
+    match = {
+        class = "org.keepassxc.KeePassXC",
+    },
+    float = true,
+    pin = true,
+})
