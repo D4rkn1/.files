@@ -1,5 +1,5 @@
 (defsrc
-  esc  f1   f2   f3        f5   f6   f7   f8
+  esc  f1   f2   f3        f5   f6   f7   f8   f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
@@ -13,7 +13,7 @@
 )
 
 (deflayer colemakdh
-  caps  @myf1 @myf2 @myf3       @myf5 @myf6 @myf7 @myf8
+  caps  @myf1 @myf2 @myf3       @myf5 @myf6 @myf7 @myf8 @myf12
   grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab   q     w     f     p     b     j     l     u     y     ;     [     ]     \
   @leader  a     r     s     t     g     m     n     e     i     o     '     ret
@@ -27,6 +27,7 @@
   myf6 (tap-hold 200 200 f6 pp)
   myf7 (tap-hold 200 200 f7 next)
   myf8 (tap-hold 200 200 f8 f13)
+  myf12 (tap-hold 200 200 f12 f14)
 )
 
 (defalias mylalt (tap-hold-release 100 100 f9 lalt))
