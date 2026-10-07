@@ -45,7 +45,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = { class = "^discord$" },
-    workspace = "9",
+    workspace = "9 silent",
 })
 
 hl.window_rule({
