@@ -175,3 +175,4 @@ hl.bind("F9", function()
     hl.config({ cursor = { zoom_factor = 4.0} })
   end
 end)
+hl.bind("XF86Launch5", hl.dsp.exec_cmd("keepassxc"), { locked = true })
