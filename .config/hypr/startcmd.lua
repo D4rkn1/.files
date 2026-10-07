@@ -33,6 +33,6 @@ return {
     hl.exec_cmd("tmux new-session -d -s 'ping' 'ping one.one.one.one | cut -d ' ' -f 8'")
   end,
   discord = function()
-    hl.exec_cmd("discord")
+    hl.exec_cmd("discord", {silent = true})
   end,
 }
