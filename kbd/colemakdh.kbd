@@ -14,7 +14,7 @@
 
 (deflayer colemakdh
   caps  @myf1 @myf2 @myf3       @myf5 @myf6 @myf7 @myf8 @myf12
-  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  grv   1     @my2     3     4     5     6     7     8     9     0     -     =     bspc
   tab   q     w     f     p     b     j     l     u     y     ;     [     ]     \
   @leader  a     r     s     t     g     m     n     e     i     o     '     ret
   @myshift  x     c     d     v     z     k     h     ,     .     /     rsft
@@ -28,6 +28,7 @@
   myf7 (tap-hold 200 200 f7 next)
   myf8 (tap-hold 200 200 f8 f13)
   myf12 (tap-hold 200 200 f12 f14)
+  my2 (tap-hold 200 200 2 f15)
 )
 
 (defalias mylalt (tap-hold-release 100 100 f9 lalt))
