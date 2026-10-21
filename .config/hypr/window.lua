@@ -49,13 +49,13 @@ hl.window_rule({
 })
 
 hl.workspace_rule({
-    workspace = "special:browser",
+    workspace = "2",
     on_created_empty = "helium-browser",
 })
 
 hl.window_rule({
     match = { class = "^(helium)$" },
-    workspace = "special:browser",
+    workspace = "2",
 })
 
 hl.window_rule({

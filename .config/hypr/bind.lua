@@ -177,4 +177,4 @@ hl.bind("F9", function()
 end)
 hl.bind("XF86Launch5", hl.dsp.exec_cmd("keepassxc"), { locked = true })
 
-hl.bind("XF86Launch6", hl.dsp.workspace.toggle_special("browser"))
+hl.bind("XF86Launch6", hl.dsp.focus({workspace = 2}))
