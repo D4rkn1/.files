@@ -48,6 +48,16 @@ hl.window_rule({
     workspace = "9 silent",
 })
 
+hl.workspace_rule({
+    workspace = "special:browser",
+    on_created_empty = "helium-browser",
+})
+
+hl.window_rule({
+    match = { class = "^(helium)$" },
+    workspace = "special:browser",
+})
+
 hl.window_rule({
     match = { class = "^osu!$" },
     workspace = "4",
