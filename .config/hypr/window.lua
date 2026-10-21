@@ -74,4 +74,5 @@ hl.window_rule({
     },
     float = true,
     pin = true,
+    focus_on_activate = true,
 })
