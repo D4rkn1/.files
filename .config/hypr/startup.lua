@@ -9,6 +9,7 @@ hl.on("hyprland.start", function()
   cmd.fcitx()
   cmd.wayvnc()
   cmd.discord()
+  cmd.quickshell()
 end)
 
 hl.config({

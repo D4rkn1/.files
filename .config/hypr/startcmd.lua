@@ -33,6 +33,9 @@ return {
     hl.exec_cmd("tmux new-session -d -s 'ping' 'ping one.one.one.one | cut -d ' ' -f 8'")
   end,
   discord = function()
-    hl.exec_cmd("discord", {silent = true})
+    hl.exec_cmd("discord")
+  end,
+  quickshell = function()
+    hl.exec_cmd("quickshell -c volume-osd")
   end,
 }
